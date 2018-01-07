@@ -36,6 +36,11 @@ def runtests():
     # we need to verify that len(l) >= len(sublist)
     assert not is_sublist_fuzzy(['aaa'], ['ddd', 'bbb', 'ccc'], 0)
 
+    # advanced test:
+    # the number of possibilities is exponential
+    # so we need take care of the complexity of the algorithm
+    l = "three switched witch watch three Swatch watch switches which switched witch watches which swatch watch switch".split()
+    assert is_sublist_fuzzy(l, l, 0.2)
 
 
 if __name__ == "__main__":

@@ -4,8 +4,10 @@ from functools import reduce
 from graph import *
 
 
-def display(l, sublist, threshold, result):
+def display(l, sublist, threshold, result, candidates):
     print("Possibles sentences that we can understand from "+ str(sublist) + " with a threshold of " + str(threshold))
+    print('the layers of the graph are:')
+    print(list(map(lambda x: x[1], candidates)))
     print('Is there a fuzzy-sublist of '  + str(l) + ' in those? ' + str(result))
 
 def build_graph_layer(words, nodes):
@@ -35,7 +37,7 @@ def is_sublist_fuzzy(l, sublist, threshold):
     candidates = [(candidate, list(filter(lambda word: ratio(candidate, word) > threshold, words))) for candidate, words in candidates]
     first_nodes = build_whole_graph(candidates)
     result = Graph(first_nodes).is_fuzzy_sublist(l)
-    display(l, sublist, threshold, result)
+    display(l, sublist, threshold, result, candidates)
     return result
 
 
