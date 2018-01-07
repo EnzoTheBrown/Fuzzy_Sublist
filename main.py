@@ -1,27 +1,9 @@
 # Enzo Lebrun
 # enzo.the@gmail.com
 from fuzzy_sublist import *
+
+
 def runtests():
-    # testing first functions
-    # checking is_sublist function
-    assert is_sublist(list(range(100)), [1,2,3,4,5])
-    assert not is_sublist(list(range(100)), [1,2,7,8])
-    assert is_sublist(list(range(100)), [])
-    assert is_sublist([], [])
-    assert not is_sublist([], list(range(100)))
-
-    # checking build_possible_sentences
-    candidates = [
-            ['a', 'abc'],
-            ['b', 'gh'],
-            ['c', 'ef']
-            ]
-    sentences = []
-    result = ['age', 'agf', 'ahe', 'ahf','bge', 'bgf', 'bhe', 'bhf','cge', 'cgf', 'che', 'chf']
-    build_possible_sentences(0, candidates, sentences, [])
-    # checking if build_possible_sentences return the elements in result
-    assert set(map(lambda a: ''.join(a), sentences)) == set(result)
-
     # cheking is_sublist_fuzzy
     l = ['je', 'mange', 'une', 'pomme']
     sublist = ['manga', 'un', 'pimme']
@@ -53,6 +35,7 @@ def runtests():
     assert is_sublist_fuzzy(l, sublist2, 0)
     # we need to verify that len(l) >= len(sublist)
     assert not is_sublist_fuzzy(['aaa'], ['ddd', 'bbb', 'ccc'], 0)
+
 
 
 if __name__ == "__main__":
