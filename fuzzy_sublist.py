@@ -37,7 +37,7 @@ def is_sublist_fuzzy(l, sublist, threshold, visu=False, name="test.gv"):
         print('The empty list as no fuzzy-sublist appart from itself')
         return False
     candidates = [(i_sublist, l) for i_sublist in sublist]
-    candidates = [(candidate, list(filter(lambda word: ratio(candidate, word) > threshold, words))) for candidate, words in candidates]
+    candidates = [(candidate, list(set(filter(lambda word: ratio(candidate, word) > threshold, words)))) for candidate, words in candidates]
     nodes = []
     list_cand = []
     first_nodes = build_whole_graph(candidates, nodes, list_cand)
