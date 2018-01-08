@@ -42,7 +42,7 @@ def runtests():
     l = "three switched witch watch three swatch watch switches which switched witch watches which swatch watch switch".split()
     sublist = "watches which swatch watch".split()
     assert is_sublist_fuzzy(l, sublist, 0.8, visu=True, name="which.gv")
-
+    assert is_sublist_fuzzy(l, l, 0.5, visu=True, name="brutal.gv")
 
 if __name__ == "__main__":
     runtests()

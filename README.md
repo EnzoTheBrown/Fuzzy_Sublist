@@ -68,5 +68,10 @@ To see the importance of low complexity algorithm, here is an example of what ca
 
 There is 4*2*6*6 = 288 possible sublist and it groes exponentially
 
+and here:
+
+![brutal](https://github.com/EnzoTheBrown/Fuzzy_Sublist/blob/master/test-output/brutal.gv-1.png?raw=true)
+
+
 
 The good point of this representation is due to the fact that the more we reduce the threshold and the more the word in the sentence are similar, the harder it becomes to compute the algorithm. So with a graph algorithm we get rid of every combinatory problems such as complexity.
