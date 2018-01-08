@@ -52,5 +52,10 @@ The graph will be:
 
 ![complex_graph](https://github.com/EnzoTheBrown/Fuzzy_Sublist/blob/master/test-output/pomme_complex.gv-1.png?raw=true)
 
+To see the importance of low complexity algorithm, here is an example of what can happend:
+
+![which](https://github.com/EnzoTheBrown/Fuzzy_Sublist/blob/master/test-output/which.gv-1.png?raw=true)
+
+
 
 The good point of this representation is due to the fact that the more we reduce the threshold and the more the word in the sentence are similar, the harder it becomes to compute the algorithm. So with a graph algorithm we get rid of every combinatory problems such as complexity.
