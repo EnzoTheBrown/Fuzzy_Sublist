@@ -16,7 +16,7 @@ def runtests():
     assert not is_sublist_fuzzy([], l, 0.7)
     assert is_sublist_fuzzy(l, [], 0.7)
 
-    assert is_sublist_fuzzy(l, sublist, 0.7)
+    assert is_sublist_fuzzy(l, sublist, 0.7, visu=True, name="pomme_simple.gv")
     # checking if the order in the sublist is respected
     assert not is_sublist_fuzzy(l, sublist3, 0.7)
     # checking if l == l
@@ -26,7 +26,7 @@ def runtests():
     # so the most probable sentence is "je pomme une mange"
     # but the real fuzzy-sublist is "je mange une pomme"
     # so we need to verify if is_sublist_fuzzy handle those kind of sides effects
-    assert is_sublist_fuzzy(l, sublist2, 0.4)
+    assert is_sublist_fuzzy(l, sublist2, 0.4, visu=True, name="pomme_complex.gv")
     # checking if the order in the list still matters
     assert not is_sublist_fuzzy(l, sublist4, 0.4)
 
@@ -39,8 +39,9 @@ def runtests():
     # advanced test:
     # the number of possibilities is exponential
     # so we need take care of the complexity of the algorithm
-    l = "three switched witch watch three Swatch watch switches which switched witch watches which swatch watch switch".split()
-    assert is_sublist_fuzzy(l, l, 0.2)
+    l = "three switched witch watch three swatch watch switches which switched witch watches which swatch watch switch".split()
+    sublist = "watches which swatch watch".split()
+    assert is_sublist_fuzzy(l, sublist, 0.8, visu=True, name="which.gv")
 
 
 if __name__ == "__main__":

@@ -28,13 +28,30 @@ class Node:
         # otherwise we check for every possible path if one of them fits to the remaining words
         return reduce(or_, [neighb.walk_in_graph(words[1:]) for neighb in self.neighbs], False)
 
+    def init_graphviz(self, dot, links):
+        for node in self.neighbs:
+            if str(id(self)) not in links:
+                links[str(id(self))] = []
+            if str(id(node)) not in links[str(id(self))]:
+                links[str(id(self))].append(str(id(node)))
+                dot.edge(str(id(self)), str(id(node)), constaint='false')
+                node.init_graphviz(dot, links)
+
 
 class Graph:
-    def __init__(self, first_nodes):
+    def __init__(self, first_nodes, nodes):
         self.first_nodes = first_nodes
+        self.nodes = nodes
 
     def is_fuzzy_sublist(self, l):
         return reduce(or_, [node.is_fuzzy_sublist(l) for node in self.first_nodes], False)
+
+    def init_graphviz(self, dot):
+        links = {}
+        for node in self.nodes:
+            dot.node(str(id(node)), node.word)
+        for node in self.first_nodes:
+            node.init_graphviz(dot, links)
 
 
 def run_graph_tests():
@@ -52,8 +69,5 @@ def run_graph_tests():
     test = ['je', 'mange', 'une', 'pomme']
     assert mange.is_fuzzy_sublist(test)
     assert une.is_fuzzy_sublist(test)
-
-
-run_graph_tests()
 
 
