@@ -1,4 +1,14 @@
-# Fuzzy_Sublist
+# Fuzzy_Sublist 
+
+## To Run
+```bash
+pip install graphviz
+pip install Levenshtein
+git clone https://github.com/EnzoTheBrown/Fuzzy_Sublist.git
+cd Fuzzy_Sublist
+python main.py
+```
+
 
 ## Algorithm:
 
