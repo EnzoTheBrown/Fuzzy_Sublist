@@ -4,6 +4,7 @@ from functools import reduce
 from graph import *
 from graphviz import Digraph
 
+
 def display(l, sublist, threshold, result, candidates):
     print("Possibles sentences that we can understand from "+ str(sublist) + " with a threshold of " + str(threshold))
     print('the layers of the graph are:')
